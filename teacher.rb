@@ -13,3 +13,4 @@ class Teacher < Person
     true
   end
 end
+# Path: student.rb

@@ -1,4 +1,4 @@
-require './nameable.rb'
+require './nameable'
 
 class Decorator < Nameable
   attr_accessor :nameable
@@ -20,7 +20,7 @@ class CapitalizeDecorator < Decorator
 end
 
 class TrimmerDecorator < Decorator
-    def correct_name
-        @nameable.correct_name.slice(0, 10)
-    end
+  def correct_name
+    @nameable.correct_name.slice(0, 10)
+  end
 end

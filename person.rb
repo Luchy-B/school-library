@@ -1,4 +1,4 @@
-require './nameable.rb'
+require './nameable'
 
 # Person class
 class Person < Nameable
@@ -16,7 +16,7 @@ class Person < Nameable
   def can_use_services?
     @parent_permission || of_age?
   end
-  
+
   def correct_name
     @name
   end

@@ -1,12 +1,15 @@
+# frozen_string_literal: true
+
 require_relative './person'
 
-class teacher < person
-    def initialize(name = "Unknown", age, parent_permission = true, specialization)
-        super(name, age, parent_permission)
-        @specialization = specialization
-    end
-    
-    def can_use_services?
-        true
-    end
+# Teacher class
+class Teacher < Person
+  def initialize(specialization, age, name = 'Unknown', parent_permission: true)
+    super(name, age, parent_permission)
+    @specialization = specialization
+  end
+
+  def can_use_services?
+    true
+  end
 end

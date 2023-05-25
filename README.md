@@ -65,7 +65,6 @@ In order to run this project you need: **Ruby installed**.
 - Clone [this repository](https://github.com/Luchy-B/school-library.git) to your desired folder.
 - Alternatively, you can download the zip file of your project by clicking on the Code button on the right side of your project page and clicking on Download ZIP
 
-
 ### Install
 
 Install this project with: 

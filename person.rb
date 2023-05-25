@@ -40,7 +40,6 @@ class Person < Nameable
   private :of_age?
 end
 
-
 person = Person.new(22, 'maximilianus')
 puts person.correct_name
 

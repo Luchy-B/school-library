@@ -81,7 +81,6 @@ To run the project, execute the following command:
 - Install Ruby.
 - Install Ruby Gem
 
-
 ### Run tests
 
 To run tests, run the following command: **Not available**.

@@ -46,7 +46,7 @@ class App
     puts 'Enter Student Classroom'
     classroom = gets.chomp
     student = Student.new(classroom, age, name, parent_permission: parent_permission)
-    @peoples.push(student)
+    @peoples << (student)
   end
 
   def create_teacher

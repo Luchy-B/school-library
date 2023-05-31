@@ -1,9 +1,11 @@
-require './student'
-require './teacher'
-require './book'
-require './rental'
-require './person'
-require './classroom'
+require_relative './student'
+require_relative './teacher'
+require_relative './book'
+require_relative './rental'
+require_relative './person'
+require_relative './classroom'
+require_relative './preserve_data'
+require 'fileutils'
 
 class App
   attr_accessor :books, :peoples, :rentals
@@ -12,6 +14,7 @@ class App
     @books = []
     @peoples = []
     @rentals = []
+    load_data_from_json
   end
 
   def list_books
@@ -104,10 +107,20 @@ class App
     @rentals.push(rental)
   end
 
-  def list_rentals(id)
+  def list_rentals(id) 
     puts 'Rentals:'
     @rentals.each do |rental|
       puts "Date #{rental.date}, Book #{rental.book.title} by #{rental.book.author}" if rental.person.id == id
     end
+  end
+
+  def save_data_to_json
+    FileUtils.mkdir_p(DATA_DIR)
+
+    save_books_to_json
+    save_people_to_json
+    save_rentals_to_json
+
+    puts 'Data saved successfully.'
   end
 end

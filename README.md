@@ -1,4 +1,5 @@
 # school-library
+
 <a name="readme-top"></a>
 
 # 📗 Table of Contents
@@ -80,7 +81,6 @@ To run the project, execute the following command:
 
 - Install Ruby.
 - Install Ruby Gem
-
 
 ### Run tests
 

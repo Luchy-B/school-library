@@ -10,8 +10,8 @@ class Person < Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
     @id = Random.rand(1..1000)
-    @name = name
     @age = age
+    @name = name
     @parent_permission = parent_permission
     @rentals = []
   end
@@ -33,7 +33,7 @@ class Person < Nameable
     rentals.delete(rental)
     rental.person = nil
   end
-
+  
   def of_age?
     @age >= 18
   end

@@ -22,6 +22,18 @@ def save_people_to_json
   File.write("#{DATA_DIR}/people.json", JSON.pretty_generate(people_data))
 end
 
+def save_rentals_to_json
+  rentals_data = @rentals.map do |rental|
+    {
+      'date' => rental.date,
+      'person' => { 'id' => rental.person.id }, # Include the person ID
+      'book' => { 'title' => rental.book.title } # Include the book title
+    }
+  end
+
+  File.write("#{DATA_DIR}/rentals.json", JSON.pretty_generate(rentals_data))
+end
+
 def load_data_from_json
   load_books_from_json
   load_people_from_json
@@ -48,12 +60,32 @@ def load_people_from_json
     if person_data['type'] == 'Student'
       student = Student.new(person_data['age'], person_data['name'],
                             parent_permission: person_data['parent_permission'])
-      student.id = person_data['id'] # Assign the person ID
+      id = person_data['id'] # Assign the person ID
       @peoples << student
     elsif person_data['type'] == 'Teacher'
-      teacher = Teacher.new(person_data['age'], person_data['specialization'], person_data['name'])
-      teacher.id = person_data['id'] # Assign the person ID
+      teacher = Teacher.new(person_data['age'], person_data['name'], person_data['parent_permission'])
+      id = person_data['id'] # Assign the person ID
       @peoples << teacher
+    end
+  end
+end
+
+def load_rentals_from_json
+  return unless File.exist?("#{DATA_DIR}/rentals.json")
+
+  rentals_json = File.read("#{DATA_DIR}/rentals.json")
+  rentals_data = JSON.parse(rentals_json)
+
+  rentals_data.each do |rental_data|
+    person_id = rental_data['person']['id']
+    book_title = rental_data['book']['title']
+
+    person = @peoples.find { |rental_person| rental_person.id == person_id }
+    book = @books.find { |rental_book| rental_book.title == book_title }
+
+    if person && book
+      rental = Rental.new(rental_data['date'], person, book)
+      @rentals << rental
     end
   end
 end

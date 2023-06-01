@@ -49,7 +49,7 @@ class App
     puts 'Enter Student Classroom'
     classroom = gets.chomp
     student = Student.new(classroom, age, name, parent_permission: parent_permission)
-    @people.push(student)
+    @peoples << student
   end
 
   def create_teacher
@@ -62,8 +62,8 @@ class App
     puts 'Enter Teacher Specialization'
     specialization = gets.chomp
 
-    teacher = Teacher.new(age, name, parent_permission: parent_permission, specialization: specialization)
-    @peoples.push(teacher)
+    teacher = Teacher.new(specialization, age, name, parent_permission: parent_permission)
+    @peoples << teacher
   end
 
   def create_person
@@ -101,10 +101,10 @@ class App
       puts "#{idx}) [#{person.class.name}] Name #{person.name}, ID #{person.id}, Age #{person.age}"
     end
     person_index = gets.chomp.to_i
-    puts 'Date:-'
+    puts 'Date [YYYY/MM/DD]: '
     date = gets.chomp
-    rental = Rental.new(@books[book_index], @peoples[person_index], date)
-    @rentals.push(rental)
+    rentals << Rental.new(date, @peoples[person_index], @books[book_index])
+    puts 'Rentals created successfuly'
   end
 
   def list_rentals(id) 

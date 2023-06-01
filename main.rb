@@ -8,7 +8,7 @@ class Main
 
   def main
     puts 'Welcome to School Library App!'
-
+    
     loop do
       puts "\n"
       list_options
@@ -17,6 +17,7 @@ class Main
       case choice
       when 1..6
         take_action(choice)
+        @app.save_data_to_json
       when 7
         @app.save_data_to_json
         puts 'Thank You for using this app!'

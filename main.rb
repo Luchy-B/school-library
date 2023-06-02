@@ -1,4 +1,5 @@
 require_relative './app'
+require_relative './preserve_data'
 
 class Main
   def initialize
@@ -16,7 +17,9 @@ class Main
       case choice
       when 1..6
         take_action(choice)
+        @app.save_data_to_json
       when 7
+        @app.save_data_to_json
         puts 'Thank You for using this app!'
         exit 0
       else

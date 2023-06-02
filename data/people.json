@@ -1,0 +1,18 @@
+[
+  {
+    "type": "Student",
+    "id": 928,
+    "age": 6,
+    "name": "Excel",
+    "parent_permission": true,
+    "specialization": null
+  },
+  {
+    "type": "Teacher",
+    "id": 782,
+    "age": 34,
+    "name": "Kyran",
+    "parent_permission": null,
+    "specialization": "English"
+  }
+]

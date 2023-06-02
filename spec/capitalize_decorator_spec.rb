@@ -1,1 +1,1 @@
-# capitaliza_decorator_spec
+# capitaliza_decorator_specs.rb

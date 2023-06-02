@@ -60,9 +60,10 @@ class App
     puts 'Does the teacher have parent permission? (true/false)'
     parent_permission = gets.chomp.downcase == 'true'
     puts 'Enter Teacher Specialization'
-    specialization = gets.chomp
+    gets.chomp
 
     teacher = Teacher.new(specialization, age, name, parent_permission: parent_permission)
+
     @peoples << teacher
   end
 
@@ -109,6 +110,7 @@ class App
 
   def list_rentals(id) 
     puts 'Rentals:'
+
     @rentals.each do |rental|
       puts "Date #{rental.date}, Book #{rental.book.title} by #{rental.book.author}" if rental.person.id == id
     end

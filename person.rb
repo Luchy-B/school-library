@@ -39,4 +39,3 @@ class Person < Nameable
   end
   private :of_age?
 end
-

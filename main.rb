@@ -8,7 +8,7 @@ class Main
 
   def main
     puts 'Welcome to School Library App!'
-    
+
     loop do
       puts "\n"
       list_options

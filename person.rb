@@ -33,10 +33,9 @@ class Person < Nameable
     rentals.delete(rental)
     rental.person = nil
   end
-  
+
   def of_age?
     @age >= 18
   end
   private :of_age?
 end
-

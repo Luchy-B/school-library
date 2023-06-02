@@ -107,7 +107,7 @@ class App
     puts 'Rentals created successfuly'
   end
 
-  def list_rentals(id) 
+  def list_rentals(id)
     puts 'Rentals:'
     @rentals.each do |rental|
       puts "Date #{rental.date}, Book #{rental.book.title} by #{rental.book.author}" if rental.person.id == id

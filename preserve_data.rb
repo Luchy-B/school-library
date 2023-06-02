@@ -60,11 +60,11 @@ def load_people_from_json
     if person_data['type'] == 'Student'
       student = Student.new(person_data['age'], person_data['name'],
                             parent_permission: person_data['parent_permission'])
-      id = person_data['id'] # Assign the person ID
+      person_data['id'] # Assign the person ID
       @peoples << student
     elsif person_data['type'] == 'Teacher'
       teacher = Teacher.new(person_data['age'], person_data['name'], person_data['parent_permission'])
-      id = person_data['id'] # Assign the person ID
+      person_data['id'] # Assign the person ID
       @peoples << teacher
     end
   end

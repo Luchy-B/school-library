@@ -1,1 +1,1 @@
-#rentals_spec.rb
+# rentals_specs.rb

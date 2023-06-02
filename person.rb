@@ -29,11 +29,6 @@ class Person < Nameable
     rental.person = self
   end
 
-  def remove_rental(rental)
-    rentals.delete(rental)
-    rental.person = nil
-  end
-
   def of_age?
     @age >= 18
   end

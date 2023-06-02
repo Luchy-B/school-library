@@ -14,8 +14,4 @@ class Book
     @rentals.push(rental)
     rental.book = self
   end
-
-  def remove_rental(rental)
-    rentals.delete(rental)
-  end
 end
